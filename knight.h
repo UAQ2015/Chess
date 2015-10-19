@@ -2,7 +2,7 @@
 #define KNIGHT_H
 #include "piece.h"
 
-class KNIGHT:public Piece
+class Knight:public Piece
 {
         public:
                 Knight(int, int, int);
