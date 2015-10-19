@@ -12,7 +12,9 @@ class ChessBoard
 {
 public:
     ChessBoard();
-
+private:
+    int turn;
+    int winner;
 };
 
 #endif

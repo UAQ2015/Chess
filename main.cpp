@@ -3,11 +3,17 @@
 
 int main()
 {
-	Piece p(1, 1, 0);
+/*	Piece p(1, 1, 0);
 	Piece p2(2, 6, 0);
 	p.Draw();
 	Rook r(1, 0, 0);
 	r.Draw();
-	return 0;	
+*/
+    ChessBoard cb;
+
+
+    
+    
+    return 0;	
 }
 
