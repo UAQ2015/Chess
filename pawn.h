@@ -4,10 +4,10 @@
 
 class Pawn:public Piece
 {
-        public:
-                Pawn(int, int, int);
-                ~Pawn();
-                void Draw();
+public:
+    Pawn(int, int, int);
+    ~Pawn();
+    virtual void Draw();
 };
 
 #endif

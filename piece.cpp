@@ -7,16 +7,16 @@ Piece::Piece(int _player, int _x, int _y)
 	player = _player;
 	x = _x;
 	y = _y;
-	std::cout<<"Calling constructor\n";
+//	std::cout<<"Calling constructor\n";
 }
 
 void Piece::Draw()
 {
-	std::cout<< "piece\n";
+    std::cout<< "X\n";
 }
 
 //	desctructor
-	Piece::~Piece()
+Piece::~Piece()
 {
-	std::cout<<"Calling destructor\n";
+//	std::cout<<"Calling destructor\n";
 }

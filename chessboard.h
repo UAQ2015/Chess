@@ -15,7 +15,8 @@ public:
     ChessBoard();
     // ~ChessBoard();
 
-    void FillBoard(); // Fill the chessboard with all the initial pieces
+    void FillBoard();   // Fill the chessboard with all the initial pieces
+    void Draw();        // Draws the board with all the pieces
 
 private:
     int turn;
