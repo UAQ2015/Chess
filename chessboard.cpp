@@ -5,16 +5,7 @@
 using namespace std;
 
 ChessBoard::ChessBoard():
-    board{
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0
-    }
+    board{ 0 }
 {
     turn = 1;
     winner = 0;
@@ -30,8 +21,7 @@ void ChessBoard::FillBoard()
     for(int j=1;j<=2;j++)
         for(int i=0;i<8;i++)
         {
-            p=NULL;
-            row= i+5*(j-1);
+            row= 1+5*(j-1);
             p= new Pawn(j, row, i);
             board[row][i]= p;
         }
