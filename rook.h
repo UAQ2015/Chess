@@ -1,6 +1,9 @@
 #ifndef ROOK_H
 #define ROOK_H
 #include "piece.h"
+/**
+* Base class for rook
+*/
 
 class Rook:public Piece
 {

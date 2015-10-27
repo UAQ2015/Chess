@@ -1,6 +1,9 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 #include "piece.h"
+/**
+* Base class for queen
+*/
 
 class Queen:public Piece
 {

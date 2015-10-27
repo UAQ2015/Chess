@@ -8,6 +8,9 @@
 #include "queen.h"
 #include "king.h"
 #include "piece.h"
+/**
+* Base class for chessboard
+*/
 
 class ChessBoard
 {
