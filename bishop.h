@@ -9,7 +9,13 @@ class Bishop:public Piece
         public:
                 Bishop(int, int, int);
                 ~Bishop();
-                void Draw();
+//                void Draw();
+		virtual void Draw();
+/**
+* Virtual function to draw a pawn
+*/
+
+
 };
 
 #endif
