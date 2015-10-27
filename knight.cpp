@@ -14,7 +14,7 @@ Knight::~Knight()
 
 void Knight::Draw()
 {
-        std::cout<<"Knight\n";
+        std::cout<<"C";
 }
 
 

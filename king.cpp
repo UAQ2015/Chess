@@ -14,7 +14,7 @@ King::~King()
 
 void King::Draw()
 {
-        std::cout<<"King\n";
+        std::cout<<"K";
 }
 
 

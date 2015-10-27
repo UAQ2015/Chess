@@ -14,7 +14,7 @@ Queen::~Queen()
 
 void Queen::Draw()
 {
-        std::cout<<"Queen\n";
+        std::cout<<"Q";
 }
 
 

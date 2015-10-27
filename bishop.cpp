@@ -14,6 +14,6 @@ Bishop::~Bishop()
 
 void Bishop::Draw()
 {
-        std::cout<<"Bishop\n";
+        std::cout<<"B";
 }
 

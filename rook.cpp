@@ -14,5 +14,5 @@ Rook::~Rook()
 
 void Rook::Draw()
 {
-	std::cout<<"Rook\n";
+	std::cout<<"R";
 }
