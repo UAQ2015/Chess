@@ -14,6 +14,6 @@ Pawn::~Pawn()
 
 void Pawn::Draw()
 {
-        std::cout<<"p";
+	std::cout<<"p";
 }
 

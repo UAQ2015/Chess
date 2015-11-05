@@ -14,6 +14,19 @@ ChessBoard::ChessBoard():
     Draw();
 }
 
+ChessBoard::~ChessBoard()
+{
+	Piece *p=NULL;
+	for(int i=0; i<8;i++){
+		for(int j=0; j<8;j++){
+			p= board[i][j];
+			if (p!=NULL){
+				delete p;
+			}
+		}
+	}
+}
+
 void ChessBoard::FillBoard()
 {
     int row;
@@ -67,10 +80,18 @@ void ChessBoard::FillBoard()
             board[row][4]= k;
         }
 
+	Rook *rk= new Rook(1, 4, 0);
+	board[4][0]=rk;
+
+	Piece *piece= NULL;
+    for(int j=0;j<8;j++)
+        for(int i=0;i<8;i++){
+			piece= board[i][j];
+			if(piece!=NULL)
+				piece->board= (Piece ***) board;
+		}
 
 
-	
-    // TODO put all of the other pieces
 
 }
 
@@ -97,4 +118,43 @@ void ChessBoard::Draw()
         cout<<endl;
     }
 }
+
+/**
+ * This method returns a piece pointer from a given string.
+ * the string format follows the algebraic format, example
+ * e2
+ * @param origin string of the origin movement in algebraic format.
+ * @returns a pointer to a piece
+ */
+Piece *ChessBoard::GetPiece(string origin){
+	Piece *p=NULL;
+	int r=0, c=0;
+
+	// TODO: validate that the string is the correct format, regexp recommended
+
+	c= (int) (origin[0]-'a'); // letters are the columns
+	r= (int) 8- (origin[1]-'0'); // numbers are rows
+	cout<<"row is: "<<r<<endl;
+	cout<<"col is: "<<c<<endl;
+
+	p= board[r][c];
+
+	return p;
+}
+
+bool ChessBoard::Validate(Piece *p, string move){
+	return p->Validate(move);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

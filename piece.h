@@ -1,5 +1,9 @@
 #ifndef PIECE_H
 #define PIECE_H
+
+#include <string>
+
+using namespace std;
 /**
 * Base class for chess pieces
 */
@@ -14,8 +18,10 @@ public:
 * Virtual function to draw a piece
 */
     virtual void Draw();
-private:
-    int x, y;
+    virtual bool Validate(string );
+	Piece ***board;
+protected:
+    int r, c;
 
 };
 

@@ -2,11 +2,11 @@
 #include <iostream>
 //using namespace std;
 
-Piece::Piece(int _player, int _x, int _y)
+Piece::Piece(int _player, int _r, int _c)
 {
 	player = _player;
-	x = _x;
-	y = _y;
+	r = _r;
+	c = _c;
 //	std::cout<<"Calling constructor\n";
 }
 
@@ -20,3 +20,8 @@ Piece::~Piece()
 {
 //	std::cout<<"Calling destructor\n";
 }
+
+
+bool Piece::Validate(string ){
+}
+
