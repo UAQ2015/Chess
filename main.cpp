@@ -19,7 +19,7 @@ int main()
 	}
 	else cout<<"null";
 
-	v=cb.Validate(p, "a3");
+	v=cb.Validate(p, "a1");
 	cout<< (v==true?"valid\n":"unvalid\n");
 
 

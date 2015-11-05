@@ -20,19 +20,20 @@ void Rook::Draw()
 bool Rook::Validate(string dest)
 {
 	bool v=false;
-	/*
 	int cd= (int) (dest[0]-'a'); // letters are the columns
 	int rd= (int) 8- (dest[1]-'0'); // numbers are rows
 
 	if(c==cd){
+		cout<<"r "<<r<<"rd "<<rd<<endl;
 		for(int i=r;i<rd;i++){
+			cout<<endl<<i<<endl;
 			if (board[i][c]!=NULL)
 				return false;
-			if (board[rd][cd]==NULL|| board[rd][cd]->player != player)
-				return true;
-			// the destination is a piece from the same player
-			return false;
 		}
+		if (board[rd][cd]==NULL|| board[rd][cd]->player != player)
+			return true;
+		// the destination is a piece from the same player
+		return false;
 	}else if(r==rd){
 	}
 	else{
@@ -40,7 +41,6 @@ bool Rook::Validate(string dest)
 		return false;
 	}
 
-	*/
 	return v;
 }
 
