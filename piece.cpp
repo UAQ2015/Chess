@@ -7,6 +7,7 @@ Piece::Piece(int _player, int _x, int _y)
 	player = _player;
 	x = _x;
 	y = _y;
+	first_move=true;
 //	std::cout<<"Calling constructor\n";
 }
 

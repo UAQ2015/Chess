@@ -16,6 +16,9 @@ public:
     virtual void Draw();
 private:
     int x, y;
+protected:
+	bool first_move;
+
 
 };
 
