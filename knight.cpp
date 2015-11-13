@@ -1,8 +1,8 @@
 #include "knight.h"
 #include <iostream>
 
-Knight::Knight(int _player, int _x, int _y)
-        :Piece(_player, _x, _y)
+Knight::Knight(int _player, int _row, int _col, PiecesArray &board)
+        : Piece(_player, _row, _col, board)
 {
 //        std::cout<<"Creating a knight\n";
 }
@@ -18,3 +18,6 @@ void Knight::Draw()
 }
 
 
+Knight::Knight(int _player, string _position, PiecesArray &_board): Piece(_player, _position, _board) {
+
+}

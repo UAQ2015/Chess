@@ -7,11 +7,16 @@ using namespace std;
 /**
 * Base class for chess pieces
 */
+
+class Piece;
+typedef Piece *PiecesArray[8][8];
+
 class Piece
 {
 public:
-    Piece(int, int, int);
-    ~Piece();
+    Piece(int player, string position, PiecesArray & );
+    Piece(int player, int row, int col, PiecesArray &board );
+    virtual ~Piece();
 //		virtual int Move(int x, int y) = 0;
     int player;
 /**
@@ -19,11 +24,13 @@ public:
 */
     virtual void Draw();
     virtual bool Validate(string );
-	Piece ***board;
+    PiecesArray &board;
 protected:
     int r, c;
 
 };
+
+
 
 #endif
 

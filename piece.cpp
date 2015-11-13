@@ -1,14 +1,23 @@
 #include "piece.h"
 #include <iostream>
+#include <array>
 //using namespace std;
 
-Piece::Piece(int _player, int _r, int _c)
+Piece::Piece(int _player, int _row, int _col, PiecesArray &_board): board(_board)
 {
 	player = _player;
-	r = _r;
-	c = _c;
+	r = _row;
+	c = _col;
 //	std::cout<<"Calling constructor\n";
 }
+
+Piece::Piece(int _player, string position, PiecesArray &_board): board(_board) {
+	player = _player;
+
+	c = (int) (position[0] - 'a'); // letters are the columns
+	r = (int) 8 - (position[1] - '0'); // numbers are rows
+}
+
 
 void Piece::Draw()
 {

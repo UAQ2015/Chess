@@ -6,23 +6,9 @@ using namespace std;
 
 int main()
 {
-	string move;
-	bool v=false;
     ChessBoard cb;
-	Piece *p=NULL;
-	cout<< "Test getting a piece from the chessboard\n";
-	p= cb.GetPiece("a4");
 
-	if (p!=NULL) {
-		p->Draw();
-		cout<<"player: "<< p->player<<endl;
-	}
-	else cout<<"null";
-
-	v=cb.Validate(p, "a1");
-	cout<< (v==true?"valid\n":"unvalid\n");
-
-
+	cb.TestRook();
 /*
 	while(cb.winner==0){
 		do{
@@ -46,7 +32,7 @@ int main()
 */
 
     
-    
+	cout<<"Done.\n";
     return 0;	
 }
 
