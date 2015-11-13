@@ -20,7 +20,11 @@ public:
 * Virtual function to draw a pawn
 */
 
+    bool Validate(string);
+
+
 };
+
 
 #endif
 
