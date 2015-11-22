@@ -69,7 +69,7 @@ bool Bishop::Validate(string dest)
 
 		}
 		if(player==1)
-i			if(V==true && board[rd][cd]==NULL)
+			if(V==true && board[rd][cd]!=NULL)
 			{
 				if(board[rd][cd]->player==2)
 					return V;
@@ -77,7 +77,7 @@ i			if(V==true && board[rd][cd]==NULL)
 					return V;
 			}	
 		else
-			if(V==true && board[rd][cd]==NULL)
+			if(V==true && board[rd][cd]!=NULL)
                         {
                                 if(board[rd][cd]->player==1)
                                         return V;

@@ -21,3 +21,31 @@ void Knight::Draw()
 Knight::Knight(int _player, string _position, PiecesArray &_board): Piece(_player, _position, _board) {
 
 }
+
+bool Knight::Validate(string dest)
+{
+        bool V= false;
+        int cd = (int) (dest[0] - 'a'); // letters are the columns
+        int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
+        int i=1, flag=0;
+                if ((rd-r)!=0 && (cd-c) != 0)
+                {
+                        if(board[rd][cd]==NULL)
+                        {
+				if((rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+					return true;		
+                        }
+                        else
+                        {
+                                        if(player==1)
+                                                if(board[rd][cd]->player==2 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+                                                        return true;
+                                        if(player==2)
+                                                if(board[rd][cd]->player==1 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+                                                        return true;
+                        }
+			return false;
+
+                }
+}
+

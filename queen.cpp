@@ -25,7 +25,9 @@ bool Queen::Validate(string dest)
         int cd = (int) (dest[0] - 'a'); // letters are the columns
         int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
         int i=1, flag=0;
-                if ((rd-r)/(cd-c) == -1)
+                
+		//Bishop part
+		if ((rd-r)/(cd-c) == -1)
                 {
                         if(cd-c<0)
                         {
@@ -66,7 +68,7 @@ bool Queen::Validate(string dest)
 
                 }
                 if(player==1)
-                        if(V==true && board[rd][cd]==NULL)
+                        if(V==true && board[rd][cd]!=NULL)
                         {
                                 if(board[rd][cd]->player==2)
                                         return V=true;
@@ -74,11 +76,53 @@ bool Queen::Validate(string dest)
                                         return V=false;
                         }
                 else
-                        if(V==true && board[rd][cd]==NULL)
+                        if(V==true && board[rd][cd]!=NULL)
                         {
                                 if(board[rd][cd]->player==1)
                                         return V=true;
                                 else
                                         return V=false;
                         }
+		 
+		//Rook part
+		if (c == cd) {
+	        	int direction = rd - r > 0 ? 1 : -1;
+        		for ( i = r + direction; i < rd; i++) {
+            			// cout << "Getting piece " << i << " " << c << endl;
+            			Piece *p = board[i][c];
+
+            			if (p != NULL) {
+                			cout << "There is a piece in the path\n";
+                			p->Draw();
+                			cout << endl;
+                			return false;
+            			}
+        		}
+        		if (board[rd][cd] == NULL || board[rd][cd]->player != player)
+            			return true;
+        		// the destination is a piece from the same player
+        		return false;
+    		} 
+		
+		else 
+			if (r == rd) {
+        			int direction = rd - c > 0 ? 1 : -1;
+        			for ( i = c + direction; i < cd; i++) {
+           				 // cout << "Getting piece " << i << " " << c << endl;
+            				Piece *p = board[r][i];
+	
+        				if (p != NULL) {
+                				cout << "There is a piece in the path\n";
+                				p->Draw();
+                				cout << endl;
+                				return false;
+            				}
+        			}				
+        		if (board[rd][cd] == NULL || board[rd][cd]->player != player)
+            			return true;
+        		// the destination is a piece from the same player
+        		return false;
+    			}
+                                                                                              26,0-1        75%
+
 }
