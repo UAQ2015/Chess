@@ -28,8 +28,11 @@ bool Bishop::Validate(string dest)
         int cd = (int) (dest[0] - 'a'); // letters are the columns
         int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
   	int i=1, flag=0;
+		if (cd==c)
+			return false;
                 if ((rd-r)/(cd-c) == -1)
                 {
+			cout<<"1";
 			if(cd-c<0)
 			{
 					for(i=1;i<c-cd;i++)
@@ -50,6 +53,7 @@ bool Bishop::Validate(string dest)
                 }
 		if((rd-r)/(cd-c) == 1)
 		{
+			cout<<"2";
 			if(cd-c<0)
                         {
                                         for(i=1;i<c-cd;i++)
@@ -69,20 +73,11 @@ bool Bishop::Validate(string dest)
 
 		}
 		if(player==1)
-			if(V==true && board[rd][cd]!=NULL)
-			{
-				if(board[rd][cd]->player==2)
-					return V;
-				else
-					return V;
-			}	
+			if(V==true && (board[rd][cd]->player==2||board[rd][cd]==NULL))
+					return true;
 		else
-			if(V==true && board[rd][cd]!=NULL)
-                        {
-                                if(board[rd][cd]->player==1)
-                                        return V;
-                                else
-                                        return V;
-                        }
 			
+			if(V==true && (board[rd][cd]->player==1||board[rd][cd]==NULL))
+                                        return true;
+		return false;
 }

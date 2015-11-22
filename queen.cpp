@@ -21,69 +21,11 @@ Queen::Queen(int _player, string _position, PiecesArray &_board) : Piece(_player
 
 bool Queen::Validate(string dest)
 {
-        bool V= false;
+
+  bool V= false;
         int cd = (int) (dest[0] - 'a'); // letters are the columns
         int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
         int i=1, flag=0;
-                
-		//Bishop part
-		if ((rd-r)/(cd-c) == -1)
-                {
-                        if(cd-c<0)
-                        {
-                                        for(i=1;i<c-cd;i++)
-                                                if(board[r+i][c-i]!=NULL)
-                                                        flag=1;
-                                        if(flag==0)
-                                                return V=true;
-                        }
-                        else
-                        {
-                                        for(i=1;i<cd-c;i++)
-                                                if(board[r-i][c+i]!=NULL)
-                                                        flag=1;
-                                        if(flag==0)
-                                                V=true;
-                        }
-
-                }
-		if((rd-r)/(cd-c) == 1)
-		 {
-                        if(cd-c<0)
-                        {
-                                        for(i=1;i<c-cd;i++)
-                                                if(board[r-i][c-i]!=NULL)
-                                                        flag=1;
-                                        if(flag==0)
-                                                V=true;
-                        }
-                        else
-                        {
-                                        for(i=1;i<cd-c;i++)
-                                                if(board[r+i][c+i]!=NULL)
-                                                        flag=1;
-                                        if(flag==0)
-                                                V=true;
-                        }
-
-                }
-                if(player==1)
-                        if(V==true && board[rd][cd]!=NULL)
-                        {
-                                if(board[rd][cd]->player==2)
-                                        return V=true;
-                                else
-                                        return V=false;
-                        }
-                else
-                        if(V==true && board[rd][cd]!=NULL)
-                        {
-                                if(board[rd][cd]->player==1)
-                                        return V=true;
-                                else
-                                        return V=false;
-                        }
-		 
 		//Rook part
 		if (c == cd) {
 	        	int direction = rd - r > 0 ? 1 : -1;
@@ -104,8 +46,7 @@ bool Queen::Validate(string dest)
         		return false;
     		} 
 		
-		else 
-			if (r == rd) {
+		if (r == rd) {
         			int direction = rd - c > 0 ? 1 : -1;
         			for ( i = c + direction; i < cd; i++) {
            				 // cout << "Getting piece " << i << " " << c << endl;
@@ -124,4 +65,58 @@ bool Queen::Validate(string dest)
         		return false;
     			}
 
+			//bishop part
+		  if (cd==c)
+                        return false;
+                if ((rd-r)/(cd-c) == -1)
+                {
+                        cout<<"1";
+                        if(cd-c<0)
+                        {
+                                        for(i=1;i<c-cd;i++)
+                                                if(board[r+i][c-i]!=NULL)
+                                                        flag=1;
+                                        if(flag==0)
+                                                 V=true;
+                        }
+                        else
+                        {
+                                        for(i=1;i<cd-c;i++)
+                                                if(board[r-i][c+i]!=NULL)
+                                                        flag=1;
+                                        if(flag==0)
+                                                V=true;
+                        }
+
+                }
+		  if((rd-r)/(cd-c) == 1)
+                {
+                        cout<<"2";
+                        if(cd-c<0)
+                        {
+                                        for(i=1;i<c-cd;i++)
+                                                if(board[r-i][c-i]!=NULL)
+                                                        flag=1;
+                                        if(flag==0)
+                                                V=true;
+                        }
+                        else
+                        {
+                                        for(i=1;i<cd-c;i++)
+                                                if(board[r+i][c+i]!=NULL)
+                                                        flag=1;
+                                        if(flag==0)
+                                                V=true;
+                        }
+
+                }
+                if(player==1)
+                        if(V==true && (board[rd][cd]->player==2||board[rd][cd]==NULL))
+                                        return true;
+                else
+
+                        if(V==true && (board[rd][cd]->player==1||board[rd][cd]==NULL))
+                                        return true;
+
+	return false;
 }

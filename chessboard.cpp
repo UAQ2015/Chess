@@ -150,9 +150,9 @@ void ChessBoard::TestRook() {
     CleanBoard();
 
     // Put only 2 pieces to test
-    string origin = "a4";
+    string origin = "b7";
     Rook *rk= new Rook(1, origin, board);
-    board[4][0]=rk;
+    board[1][1]=rk;
 
     Pawn *pw1= new Pawn(2, "a3", board);
     board[5][0]=pw1;
@@ -164,8 +164,8 @@ void ChessBoard::TestRook() {
 
 
     // Testing movements
-    cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
-    p= GetPiece("a4");
+    cout<< "Putting a piece on the chessboard at "<< "b7"<<"\n";
+    p= GetPiece("b7");
 
     if (p!=NULL) {
         p->Draw();
@@ -183,7 +183,7 @@ void ChessBoard::TestRook() {
     v= Validate(p, dest);
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
 
-    dest="d5";
+    dest="c4";
     cout<<"trying to make an invalid rook move to "<<dest<<"\n";
     v= Validate(p, dest);
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
@@ -199,3 +199,283 @@ void ChessBoard::TestRook() {
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
 
 }
+
+void ChessBoard::TestPawn() {
+    Piece *p;
+    bool v;
+
+    // Initialize Pawn
+    CleanBoard();
+
+    // Put only 2 pieces to test
+    string origin = "b7";
+    Pawn *rk= new Pawn(1, origin, board);
+    board[1][1]=rk;
+
+    Pawn *pw1= new Pawn(2, "a6", board);
+    board[2][0]=pw1;
+
+    Pawn *pw2= new Pawn(1, "c6", board);
+    board[2][3]=pw2;
+
+    Draw();
+ // Testing movements
+    cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
+    p= GetPiece("b7");
+
+    if (p!=NULL) {
+        p->Draw();
+        cout<<"\nplayer: "<< p->player<<endl;
+    }
+    else cout<<"null";
+
+    string dest="b6";
+    cout<<"trying to move one vertically "<<dest<<" \n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="b5";
+    cout<<"trying to move two vertically to "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="a6";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "d6";
+    cout<<"trying to do an invalid move "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "c6";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+}
+
+void ChessBoard::TestBishop() {
+   Piece *p;
+    bool v;
+
+    // Initialize Bishop
+    CleanBoard();
+
+    // Put only 2 pieces to test
+    string origin = "b7";
+    Bishop *rk= new Bishop(1, origin, board);
+    board[1][1]=rk;
+
+    Pawn *pw1= new Pawn(2, "a6", board);
+    board[2][0]=pw1;
+
+    Pawn *pw2= new Pawn(1, "c6", board);
+    board[2][3]=pw2;
+
+    Draw();
+ // Testing movements
+    cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
+    p= GetPiece("b7");
+
+    if (p!=NULL) {
+        p->Draw();
+        cout<<"\nplayer: "<< p->player<<endl;
+    }
+    else cout<<"null";
+
+    string dest="b6";
+    cout<<"trying to move one vertically "<<dest<<" \n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="b5";
+    cout<<"trying to move two vertically to "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="a6";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to do an invalid move "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+}
+
+void ChessBoard::TestKnight() {
+   Piece *p;
+    bool v;
+
+    // Initialize Bishop
+    CleanBoard();
+
+    // Put only 2 pieces to test
+    string origin = "e5";
+    Knight *rk= new Knight(1, origin, board);
+    board[3][4]=rk;
+
+    Pawn *pw1= new Pawn(1, "c4", board);
+    board[4][2]=pw1;
+
+    Pawn *pw2= new Pawn(1, "c6", board);
+    board[2][3]=pw2;
+
+    Draw();
+ // Testing movements
+    cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
+    p= GetPiece("e5");
+
+    if (p!=NULL) {
+        p->Draw();
+        cout<<"\nplayer: "<< p->player<<endl;
+    }
+    else cout<<"null";
+
+    string dest="g4";
+    cout<<"trying to move to "<<dest<<" \n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+    
+    dest="c6";
+    cout<<"trying to move to "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="c4";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to do an invalid move "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+}
+
+void ChessBoard::TestQueen() {
+   Piece *p;
+    bool v;
+
+    // Initialize Queen
+    CleanBoard();
+
+    // Put only 2 pieces to test
+    string origin = "b7";
+    Queen *rk= new Queen(1, origin, board);
+    board[1][1]=rk;
+
+    Pawn *pw1= new Pawn(2, "a6", board);
+    board[2][0]=pw1;
+
+    Pawn *pw2= new Pawn(1, "c6", board);
+    board[2][3]=pw2;
+
+    Draw();
+ // Testing movements
+    cout<< "Putting a piece on the chessboard at "<< "b7"<<"\n";
+    p= GetPiece("b7");
+
+    if (p!=NULL) {
+        p->Draw();
+        cout<<"\nplayer: "<< p->player<<endl;
+    }
+    else cout<<"null";
+
+    string dest="b6";
+    cout<<"trying to move one vertically "<<dest<<" \n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+    
+    dest="b1";
+    cout<<"trying to move vertically to "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="a6";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "c4";
+    cout<<"trying to do an invalid move "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+}
+
+void ChessBoard::TestKing() {
+   Piece *p;
+    bool v;
+
+    // Initialize King
+    CleanBoard();
+
+    // Put only 2 pieces to test
+    string origin = "b7";
+    King *rk= new King(1, origin, board);
+    board[1][1]=rk;
+
+    Pawn *pw1= new Pawn(2, "a6", board);
+    board[2][0]=pw1;
+
+    Pawn *pw2= new Pawn(1, "c6", board);
+    board[2][3]=pw2;
+
+    Draw();
+ // Testing movements
+    cout<< "Putting a piece on the chessboard at "<< "b7"<<"\n";
+    p= GetPiece("b7");
+
+    if (p!=NULL) {
+        p->Draw();
+        cout<<"\nplayer: "<< p->player<<endl;
+    }
+    else cout<<"null";
+
+    string dest="b6";
+    cout<<"trying to move one vertically "<<dest<<" \n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+    dest="b1";
+    cout<<"trying to move vertically to "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest="a6";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "c4";
+    cout<<"trying to do an invalid move "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+    dest= "h1";
+    cout<<"trying to capture "<<dest<<"\n";
+    v= Validate(p, dest);
+    cout << (v ? "\tvalid\n" : "\tinvalid\n");
+
+}
+                                                   

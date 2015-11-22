@@ -30,6 +30,12 @@ public:
 
     void TestRook();
 
+    void TestPawn();
+    
+    void TestBishop();
+    void TestKnight();
+    void TestQueen();
+    void TestKing();
 private:
     int turn;
     int winner;

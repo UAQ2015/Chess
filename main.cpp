@@ -8,7 +8,12 @@ int main()
 {
     ChessBoard cb;
 
-	cb.TestRook();
+//	cb.TestRook();
+	//cb.TestPawn();
+	//cb.TestBishop();
+	//cb.TestKnight();
+	//cb.TestQueen();
+	cb.TestKing();
 /*
 	while(cb.winner==0){
 		do{

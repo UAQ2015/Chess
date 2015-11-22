@@ -32,16 +32,16 @@ bool Knight::Validate(string dest)
                 {
                         if(board[rd][cd]==NULL)
                         {
-				if((rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+				if((rd-r)*(rd-r)+(cd-c)*(cd-c)==5)
 					return true;		
                         }
                         else
                         {
                                         if(player==1)
-                                                if(board[rd][cd]->player==2 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+                                                if(board[rd][cd]->player==2 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==5)
                                                         return true;
                                         if(player==2)
-                                                if(board[rd][cd]->player==1 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==10)
+                                                if(board[rd][cd]->player==1 && (rd-r)*(rd-r)+(cd-c)*(cd-c)==5)
                                                         return true;
                         }
 			return false;

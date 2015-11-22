@@ -21,22 +21,21 @@ Pawn::Pawn(int _player, string _position, PiecesArray &_board) : Piece(_player, 
 
 bool Pawn::Validate(string dest)
 {
-	bool V= false;
 	int cd = (int) (dest[0] - 'a'); // letters are the columns
    	int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
-	  if (player==1)
+	 if (player==1)
         {
                 if (c == cd) 
                 {
 			if((r==1&&rd==3)||(rd==r+1))	
 			{
-				if(board[rd][cd]==NULL && board[r+1][cd+1]==NULL)
-						return V=true;
+				if(board[rd][c]==NULL && board[r+1][c]==NULL)
+						return true;
 			}
 		}
-		if((c ==cd+1)||(c==cd-1))
-			if(r==rd+1 && board[rd][cd]->player==2)
-				return V=true;
+		if((c+1 ==cd)||(c-1==cd))
+			if(r+1==rd && board[rd][cd]->player==2)
+				return true;
 		
 	}	
 	
@@ -44,16 +43,16 @@ bool Pawn::Validate(string dest)
         {
                 if (c == cd)        
                 {
-                        if((r==1 && rd==3)||(rd==r+1))
+                        if((r==6 && rd==4)||(rd==r-1))
                         {            
-				if(board[rd][cd]==NULL && board[r-1][cd-1]==NULL)
-						return V=true;
+				if(board[rd][c]==NULL && board[r-1][c]==NULL)
+						return true;
                         }
                 }
-                if((c ==cd+1)||(c==cd-1))
-			if(r==rd-1 && board[rd][cd]->player==1)
-                                return V=true;
+                if((c+1 ==cd)||(c-1==cd))
+			if(r-1==rd && board[rd][cd]->player==1)
+                                return true;
 
         }
-
+	return false;
 }
