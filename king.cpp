@@ -28,12 +28,13 @@ bool King::Validate(string dest)
         int cd = (int) (dest[0] - 'a'); // letters are the columns
         int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
         int i=1, flag=0;
+	cout<<"hola";
  	if(player==1)               
-		if (((cd-c)*(cd-c)+(rd-r)*(rd-r)) <= 1)
+		if ((int)((cd-c)*(cd-c)+(rd-r)*(rd-r)) <2)
 		      	if(board[rd][cd]->player==2|| board[rd][cd]==NULL)
 				return true;
 	else	
-		if (((cd-c)*(cd-c)+(rd-r)*(rd-r)) <= 1)
+		if (((cd-c)*(cd-c)+(rd-r)*(rd-r)) <2)
                         if(board[rd][cd]->player==1|| board[rd][cd]==NULL)
                                 return true;
 	return false;
