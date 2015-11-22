@@ -18,6 +18,7 @@ public:
 */
     virtual void Draw();
 
+    bool Validate(string);
 
 };
 

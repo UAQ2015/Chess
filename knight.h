@@ -15,6 +15,7 @@ public:
     ~Knight();
 
     void Draw();
+    bool Validate(string);
 };
 
 #endif

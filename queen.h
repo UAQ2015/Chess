@@ -16,6 +16,7 @@ public:
     ~Queen();
 
     void Draw();
+    bool Validate(string);
 };
 
 #endif

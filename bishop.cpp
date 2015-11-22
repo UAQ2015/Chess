@@ -48,7 +48,7 @@ bool Bishop::Validate(string dest)
                         }
  
                 }
-		if((d-c)/(rd-r) == 1)
+		if((rd-r)/(cd-c) == 1)
 		{
 			if(cd-c<0)
                         {

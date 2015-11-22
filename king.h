@@ -14,6 +14,9 @@ public:
     ~King();
 
     void Draw();
+
+	
+    bool Validate(string);
 };
 
 #endif
