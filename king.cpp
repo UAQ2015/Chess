@@ -21,3 +21,13 @@ void King::Draw()
 King::King(int _player, string _position, PiecesArray &_board): Piece(_player, _position, _board) {
 
 }
+
+bool King::Validate(string dest)
+{
+        bool V= false;
+        int cd = (int) (dest[0] - 'a'); // letters are the columns
+        int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
+        int i=1, flag=0;
+                if (((cd-c)*(cd-c)+(rd-r)*(rd-r)) <= 1)
+			return true;
+}

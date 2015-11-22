@@ -30,11 +30,12 @@ bool Pawn::Validate(string dest)
                 {
 			if((r==1&&rd==3)||(rd==r+1))	
 			{
-				return V=true;
+				if(board[rd][cd]==NULL && board[r+1][cd+1]==NULL)
+						return V=true;
 			}
 		}
 		if((c ==cd+1)||(c==cd-1))
-			if(r==rd+1&&chessboard[rd][cd].player==2)
+			if(r==rd+1 && board[rd][cd]->player==2)
 				return V=true;
 		
 	}	
@@ -43,13 +44,14 @@ bool Pawn::Validate(string dest)
         {
                 if (c == cd)        
                 {
-                        if((r==1&&rd==3)||(rd==r+1))
-                        {
-                                return V=true;
+                        if((r==1 && rd==3)||(rd==r+1))
+                        {            
+				if(board[rd][cd]==NULL && board[r-1][cd-1]==NULL)
+						return V=true;
                         }
                 }
                 if((c ==cd+1)||(c==cd-1))
-                        if(r==rd)
+			if(r==rd-1 && board[rd][cd]->player==1)
                                 return V=true;
 
         }

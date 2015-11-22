@@ -25,6 +25,8 @@ public:
     virtual void Draw();
     virtual bool Validate(string );
     PiecesArray &board;
+private: 
+    int first_move;
 protected:
     int r, c;
 
