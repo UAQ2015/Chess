@@ -35,3 +35,8 @@ Piece::~Piece()
 bool Piece::Validate(string ){
 }
 
+void Piece::Move(int rd, int cd) {
+	r= rd;
+	c= cd;
+	first_move=false;
+}

@@ -13,10 +13,18 @@ int main()
 	//cb.TestBishop();
 	//cb.TestKnight();
 	//cb.TestQueen();
-	cb.TestKing();
-/*
+//	cb.TestKing();
+	string move="";
+	Piece *p=NULL;
+	bool v;
+
 	while(cb.winner==0){
 		do{
+			if (cb.turn==1)
+				cout<<"Player UP, is your turn.\n";
+			else
+				cout<<"Player DOWN, is your turn.\n";
+			cb.Draw();
 			cout<<"Move piece from :\n";
 			cin>>move;
 			p= cb.GetPiece(move);
@@ -27,16 +35,15 @@ int main()
 			if(v==true){
 				cb.Move(p, move);
 			}else{
-				cout<<"Error\n";
+				cout<<"Error invalid movement\n";
 			}
 
 		}while(v==false);
 
 		cb.ChangeTurn();
 	}
-*/
 
-    
+
 	cout<<"Done.\n";
     return 0;	
 }

@@ -25,10 +25,12 @@ public:
     virtual void Draw();
     virtual bool Validate(string );
     PiecesArray &board;
-private: 
-    int first_move;
-protected:
+
+    void Move(int i, int i1);
     int r, c;
+
+private:
+    int first_move;
 
 };
 

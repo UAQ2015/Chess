@@ -15,7 +15,6 @@
 
 using namespace std;
 
-
 class ChessBoard {
 public:
     ChessBoard();
@@ -36,12 +35,16 @@ public:
     void TestKnight();
     void TestQueen();
     void TestKing();
-private:
+
     int turn;
     int winner;
     PiecesArray board;
 
     void CleanBoard();
+
+    void Move(Piece *pPiece, string basic_string);
+
+    void ChangeTurn();
 };
 
 #endif

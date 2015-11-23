@@ -25,7 +25,8 @@ bool Rook::Validate(string dest) {
     int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
 
     if (c == cd) {
-        int direction = rd - r > 0 ? 1 : -1;
+        int direction;
+        direction = rd - r > 0 ? 1 : -1;
         for (int i = r + direction; i < rd; i++) {
             // cout << "Getting piece " << i << " " << c << endl;
             Piece *p = board[i][c];

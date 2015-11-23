@@ -126,6 +126,10 @@ Piece *ChessBoard::GetPiece(string origin) {
 }
 
 bool ChessBoard::Validate(Piece *p, string move) {
+    if (p->player!=turn){
+        cout<<"not your piece!!\n";
+        return false;
+    }
     return p->Validate(move);
 }
 
@@ -478,4 +482,25 @@ void ChessBoard::TestKing() {
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
 
 }
-                                                   
+
+void ChessBoard::Move(Piece *p, string dest) {
+    int ro= p->r;
+    int co= p->c;
+    int cd = (int) (dest[0] - 'a'); // letters are the columns
+    int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
+
+    if(board[rd][cd]!=NULL){
+        delete board[rd][cd];
+        board[rd][cd]= NULL;
+    }
+    board[ro][co]=NULL;
+    board[rd][cd]=p;
+    p->Move(rd,cd);
+}
+
+void ChessBoard::ChangeTurn() {
+    if(turn==1)
+        turn= 2;
+    else
+        turn=1;
+}
