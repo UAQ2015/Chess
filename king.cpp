@@ -31,11 +31,11 @@ bool King::Validate(string dest)
 	cout<<"hola";
  	if(player==1)               
 		if ((int)((cd-c)*(cd-c)+(rd-r)*(rd-r)) <2)
-		      	if(board[rd][cd]->player==2|| board[rd][cd]==NULL)
+		      	if(board[rd][cd]==NULL || board[rd][cd]->player==2)
 				return true;
 	else	
 		if (((cd-c)*(cd-c)+(rd-r)*(rd-r)) <2)
-                        if(board[rd][cd]->player==1|| board[rd][cd]==NULL)
+                        if(board[rd][cd]==NULL ||board[rd][cd]->player==1)
                                 return true;
 	return false;
 }

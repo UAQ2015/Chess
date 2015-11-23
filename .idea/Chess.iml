@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/bishop.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bishop.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/chessboard.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/chessboard.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/king.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/king.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/knight.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/knight.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pawn.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pawn.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/piece.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/piece.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/queen.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/queen.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rook.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rook.h" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/include" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include-fixed" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include/c++" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include/ssp" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/include" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include-fixed" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include/c++" />
+          <root url="file://C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.8.1/include/ssp" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
