@@ -349,7 +349,7 @@ void ChessBoard::TestKnight() {
     cout<<"trying to move to "<<dest<<" \n";
     v= Validate(p, dest);
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
-    
+
     dest="c6";
     cout<<"trying to move to "<<dest<<"\n";
     v= Validate(p, dest);
@@ -405,7 +405,7 @@ void ChessBoard::TestQueen() {
     cout<<"trying to move one vertically "<<dest<<" \n";
     v= Validate(p, dest);
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
-    
+
     dest="b1";
     cout<<"trying to move vertically to "<<dest<<"\n";
     v= Validate(p, dest);
@@ -493,8 +493,8 @@ void ChessBoard::Move(Piece *p, string dest) {
         delete board[rd][cd];
         board[rd][cd]= NULL;
     }
-    board[ro][co]=NULL;
     board[rd][cd]=p;
+    board[ro][co]=NULL;
     p->Move(rd,cd);
 }
 
