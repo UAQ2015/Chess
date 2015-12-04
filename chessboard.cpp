@@ -124,6 +124,15 @@ Piece *ChessBoard::GetPiece(string origin) {
 }
 
 bool ChessBoard::Validate(Piece *p, string move) {
+    int cf,rf; 
+    Piece *pp=NULL;
+    cf = (int) (move[0] - 'a'); // letters are the columns
+    rf = (int) 8 - (move[1] - '0'); // num 
+    pp=board[cf][rf];
+    if(pp==NULL){
+	cout<<"There is no piece in "<<move<<"\n";
+	return false;
+    }
     if (p->player!=turn){
         cout<<"not your piece!!\n";
         return false;
