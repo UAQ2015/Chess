@@ -500,7 +500,7 @@ void ChessBoard::Move(Piece *p, string dest) {
     board[ro][co]=NULL;
     p->Move(rd,cd);
     if( p->pawn_type == true && p->player == 1 && rd == 7){
-	cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
+	cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop\n";
 	cin>>choice;
 	delete p;
 	if(choice==1){
@@ -520,10 +520,10 @@ void ChessBoard::Move(Piece *p, string dest) {
 			board[rd][cd]=Bh;
 	}
 	if(choice<1||choice>4)
-			cout<<"F*ck you, stay with your f*cking pawn";
+			cout<<"F*ck you, stay with your f*cking pawn\n";
     }
     if( p->pawn_type == true && p->player == 2 && rd == 0){
-        cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
+        cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop\n";
         cin>>choice;
         delete p;
         if(choice==1){
@@ -543,7 +543,7 @@ void ChessBoard::Move(Piece *p, string dest) {
                         board[rd][cd]=Bh;
         }
         if(choice<1||choice>4)
-                        cout<<"F*ck you, stay with your f*cking pawn";
+                        cout<<"F*ck you, stay with your f*cking pawn\n";
     }
 
 }
