@@ -31,6 +31,7 @@ public:
     void Move(int i, int i1);
     int r, c;
     bool king_type;
+    bool pawn_type;
 private:
     int first_move;
 

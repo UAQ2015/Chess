@@ -4,11 +4,11 @@
 
 Pawn::Pawn(int _player, int _row, int _col, PiecesArray &board)
         : Piece(_player, _row, _col, board) {
-//        std::cout<<"Creating a pawn :p\n";
+        pawn_type = true;//        std::cout<<"Creating a pawn :p\n";
 }
 
 Pawn::~Pawn() {
-    //       std::cout<<"Killing a pawn Meh!\n";
+         //       std::cout<<"Killing a pawn Meh!\n";
 }
 
 void Pawn::Draw() {
@@ -22,7 +22,7 @@ void Pawn::Draw() {
 }
 
 Pawn::Pawn(int _player, string _position, PiecesArray &_board) : Piece(_player, _position, _board) {
-
+  pawn_type=false;
 }
 
 bool Pawn::Validate(string dest)

@@ -491,6 +491,7 @@ void ChessBoard::TestKing() {
 }
 
 void ChessBoard::Move(Piece *p, string dest) {
+    int choice;
     int ro= p->r;
     int co= p->c;
     int cd = (int) (dest[0] - 'a'); // letters are the columns
@@ -503,8 +504,62 @@ void ChessBoard::Move(Piece *p, string dest) {
     board[rd][cd]=p;
     board[ro][co]=NULL;
     p->Move(rd,cd);
-}
+    if( p->pawn_type == true && p->player == 1 && rd == 7){
+	cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
+	cin>>choice;
+	delete p;
+	switch (choice)
+	{
+		case 1:
+			Queen *qn = new Queen(1,dest,board); 
+			board[rd][cd]=qn;
+			break;
+		case 2:
+			Rook *rk = new Rook(1,dest,board);
+			board[rd][cd]=rk;
+			break;
+		case 3: 
+			Knight *kn = new Knight(1,dest,board);
+			board[rd][cd]=kn;
+			break;
+		case 4: 
+			Bishop *Bh = new Bishop(1,dest,board);
+			board[rd][cd]=Bh;
+			break;
+		default:
+			cout<<"F*ck you, stay with your f*cking pawn";
+			break;
+	}
+    }
+    if( p->pawn_type == true && p->player == 2 && rd == 0){
+        cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
+        cin>>choice;
+        delete p;
+        switch (choice)
+        {
+                case 1:
+                        Queen *nq = new Queen(2,dest,board);
+			board[rd][cd]=nq;
+			break;
+                case 2:
+                        Rook *kr = new Rook(2,dest,board);
+			board[rd][cd]=kr;
+			break;
+                case 3:
+                        Knight *nk = new Knight(2,dest,board);
+			board[rd][cd]=nk;
+			break;
+                case 4:
+                        Bishop *hb = new Bishop(2,dest,board);
+			board[rd][cd]=hb;
+			break;
+                default:
+                        cout<<"F*ck you, stay with your f*cking pawn";
+			break;
+        }
+    }
 
+}
 void ChessBoard::ChangeTurn() {
     if(turn==1)
         turn= 2;
