@@ -12,7 +12,13 @@ Pawn::~Pawn() {
 }
 
 void Pawn::Draw() {
-    std::cout << "p";
+   if(player == 1)
+	cout <<BOLDGREEN;
+   else
+	cout <<BOLDRED; 
+	std::cout << "p";
+	cout <<BLACK;
+	
 }
 
 Pawn::Pawn(int _player, string _position, PiecesArray &_board) : Piece(_player, _position, _board) {

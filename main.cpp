@@ -17,13 +17,21 @@ int main()
 	string move="";
 	Piece *p=NULL;
 	bool v;
-
+	cout << BLACK;
 	while(cb.winner==0){
 		do{
 			if (cb.turn==1)
-				cout<<"Player UP, is your turn.\n";
+			{
+				cout <<BOLDGREEN;
+				cout<<"Player GREEN, is your turn.\n";
+				cout <<BLACK;
+			}
 			else
-				cout<<"Player DOWN, is your turn.\n";
+			{
+				cout <<BOLDRED;
+				cout<<"Player RED, is your turn.\n";
+				cout <<BLACK;
+			}
 			cb.Draw();
 			cout<<"Move piece from :\n";
 			cin>>move;
@@ -43,8 +51,10 @@ int main()
 		cb.ChangeTurn();
 	}
 
-
-	cout<<"Done.\n";
+	if (cb.turn == 1)
+	cout<<"Player GREEN is the WINNER!!!!!!!!\n";
+	else
+	cout << "Player RED is the WINNER!!!!!!!!!\n";
     return 0;	
 }
 

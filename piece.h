@@ -1,6 +1,8 @@
 #ifndef PIECE_H
 #define PIECE_H
-
+#define BLACK "\033[30m"
+#define BOLDGREEN "\033[1m\033[32m"
+#define BOLDRED "\033[1m\033[31m"
 #include <string>
 
 using namespace std;
@@ -28,7 +30,7 @@ public:
 
     void Move(int i, int i1);
     int r, c;
-
+    bool king_type;
 private:
     int first_move;
 

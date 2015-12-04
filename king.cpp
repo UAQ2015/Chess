@@ -4,6 +4,7 @@
 King::King(int _player, int _row, int _col, PiecesArray &board)
         : Piece(_player, _row, _col, board)
 {
+	king_type = true;	
 //        std::cout<<"Creating a King\n";
 }
 
@@ -14,7 +15,12 @@ King::~King()
 
 void King::Draw()
 {
-        std::cout<<"K";
+if(player == 1)
+        cout <<BOLDGREEN;
+   else
+        cout <<BOLDRED;
+        std::cout << "K";
+        cout <<BLACK;
 }
 
 

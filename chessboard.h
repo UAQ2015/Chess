@@ -38,6 +38,7 @@ public:
 
     int turn;
     int winner;
+	
     PiecesArray board;
 
     void CleanBoard();

@@ -11,7 +11,12 @@ Queen::~Queen() {
 }
 
 void Queen::Draw() {
-    std::cout << "Q";
+if(player == 1)
+        cout <<BOLDGREEN;
+   else
+        cout <<BOLDRED;
+        std::cout << "Q";
+        cout <<BLACK;
 }
 
 
@@ -66,56 +71,53 @@ bool Queen::Validate(string dest)
     			}
 
 			//bishop part
-		  if (cd==c)
+			if (cd==c)
                         return false;
-                if ((rd-r)/(cd-c) == -1)
-                {
-                        cout<<"1";
-                        if(cd-c<0)
-                        {
+                	if ((rd-r)/(cd-c) == -1)
+                	{
+                        	if(cd-c<0)
+                        	{
                                         for(i=1;i<c-cd;i++)
                                                 if(board[r+i][c-i]!=NULL)
                                                         flag=1;
                                         if(flag==0)
                                                  V=true;
-                        }
-                        else
-                        {
+                        	}
+                        	else
+                        	{
                                         for(i=1;i<cd-c;i++)
                                                 if(board[r-i][c+i]!=NULL)
                                                         flag=1;
                                         if(flag==0)
                                                 V=true;
-                        }
+                        	}
 
-                }
-		  if((rd-r)/(cd-c) == 1)
-                {
-                        cout<<"2";
-                        if(cd-c<0)
-                        {
+                	}	
+                	if((rd-r)/(cd-c) == 1)
+			 {
+                       		 if(cd-c<0)
+                        	{
                                         for(i=1;i<c-cd;i++)
                                                 if(board[r-i][c-i]!=NULL)
                                                         flag=1;
                                         if(flag==0)
                                                 V=true;
-                        }
-                        else
-                        {
+                        	}
+                        	else
+                        	{	
                                         for(i=1;i<cd-c;i++)
                                                 if(board[r+i][c+i]!=NULL)
                                                         flag=1;
                                         if(flag==0)
                                                 V=true;
-                        }
+                        	}
 
-                }
-                if(player==1)
-                        if(V==true && (board[rd][cd]->player==2||board[rd][cd]==NULL))
+                	}	
+                	if(player==1)
+                        	if(V==true && (board[rd][cd]==NULL || board[rd][cd]->player==2))
                                         return true;
-                else
-
-                        if(V==true && (board[rd][cd]->player==1||board[rd][cd]==NULL))
+                	if(player==2)
+                        	if(V==true && (board[rd][cd]==NULL || board[rd][cd]->player==1))
                                         return true;
 
 	return false;

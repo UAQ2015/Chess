@@ -16,7 +16,12 @@ Rook::~Rook() {
 }
 
 void Rook::Draw() {
-    std::cout << "R";
+   if(player == 1)
+        cout <<BOLDGREEN;
+   else
+        cout <<BOLDRED;
+        std::cout << "R";
+        cout <<BLACK;
 }
 
 bool Rook::Validate(string dest) {

@@ -14,7 +14,12 @@ Knight::~Knight()
 
 void Knight::Draw()
 {
-        std::cout<<"C";
+ if(player == 1)
+        cout <<BOLDGREEN;
+   else
+        cout <<BOLDRED;
+        std::cout << "C";
+        cout <<BLACK;
 }
 
 

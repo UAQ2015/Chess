@@ -14,7 +14,12 @@ Bishop::~Bishop()
 
 void Bishop::Draw()
 {
-        std::cout<<"B";
+if(player == 1)
+        cout <<BOLDGREEN;
+   else
+        cout <<BOLDRED;
+        std::cout << "B";
+        cout <<BLACK;
 }
 
 Bishop::Bishop(int _player, string _position, PiecesArray &_board): Piece(_player, _position, _board) {
@@ -75,7 +80,7 @@ bool Bishop::Validate(string dest)
 		if(player==1)
 			if(V==true && (board[rd][cd]==NULL || board[rd][cd]->player==2))
 					return true;
-		else
+		if(player==2)
 			if(V==true && (board[rd][cd]==NULL || board[rd][cd]->player==1))
                                         return true;
 		return false;

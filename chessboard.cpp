@@ -1,5 +1,6 @@
 #include "chessboard.h"
-
+#define BOLDGREEN "\033[1m\033[32m"
+#define BOLDRED "\033[1m\033[31m"
 #include <iostream>
 
 using namespace std;
@@ -68,6 +69,7 @@ void ChessBoard::FillBoard() {
         row = 7 * (j - 1);
         k = new King(j, row, 4, board);
         board[row][4] = k;
+	
     }
 }
 
@@ -117,11 +119,7 @@ Piece *ChessBoard::GetPiece(string origin) {
 
     c = (int) (origin[0] - 'a'); // letters are the columns
     r = (int) 8 - (origin[1] - '0'); // numbers are rows
-    cout << "row is: " << r << endl;
-    cout << "col is: " << c << endl;
-
     p = board[r][c];
-
     return p;
 }
 
@@ -503,4 +501,17 @@ void ChessBoard::ChangeTurn() {
         turn= 2;
     else
         turn=1;
+    int kings = 0;
+    Piece *p;
+    for (int tr = 0; tr < 8; tr++)
+	for(int tc = 0; tc < 8; tc++){
+		if (board[tr][tc] != NULL)
+		{
+			p=board[tr][tc];
+			if ((p -> king_type) == true)
+				kings++;
+		}
+	}
+    if (kings != 2)
+	winner = 1;
 }
