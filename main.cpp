@@ -9,7 +9,7 @@ int main()
     ChessBoard cb;
 
 //	cb.TestRook();
-	//cb.TestPawn();
+//	cb.TestPawn();
 	//cb.TestBishop();
 	//cb.TestKnight();
 	//cb.TestQueen();

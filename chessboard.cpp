@@ -124,13 +124,8 @@ Piece *ChessBoard::GetPiece(string origin) {
 }
 
 bool ChessBoard::Validate(Piece *p, string move) {
-    int cf,rf; 
-    Piece *pp=NULL;
-    cf = (int) (move[0] - 'a'); // letters are the columns
-    rf = (int) 8 - (move[1] - '0'); // num 
-    pp=board[cf][rf];
-    if(pp==NULL){
-	cout<<"There is no piece in "<<move<<"\n";
+    if(p==NULL){
+	cout<<"There is no piece there\n";
 	return false;
     }
     if (p->player!=turn){
@@ -219,19 +214,19 @@ void ChessBoard::TestPawn() {
     CleanBoard();
 
     // Put only 2 pieces to test
-    string origin = "b7";
+    string origin = "b2";
     Pawn *rk= new Pawn(1, origin, board);
-    board[1][1]=rk;
+    board[6][1]=rk;
 
-    Pawn *pw1= new Pawn(2, "a6", board);
+    Pawn *pw1= new Pawn(2, "a7", board);
     board[2][0]=pw1;
 
-    Pawn *pw2= new Pawn(1, "c6", board);
-    board[2][3]=pw2;
+    Pawn *pw2= new Pawn(1, "f2", board);
+    board[6][5]=pw2;
 
-    Draw();
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    Draw();
  // Testing movements
-    cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
+  /*  cout<< "Putting a piece on the chessboard at "<< "a4"<<"\n";
     p= GetPiece("b7");
 
     if (p!=NULL) {
@@ -264,7 +259,7 @@ void ChessBoard::TestPawn() {
     cout<<"trying to capture "<<dest<<"\n";
     v= Validate(p, dest);
     cout << (v ? "\tvalid\n" : "\tinvalid\n");
-
+*/
 }
 
 void ChessBoard::TestBishop() {
@@ -508,55 +503,47 @@ void ChessBoard::Move(Piece *p, string dest) {
 	cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
 	cin>>choice;
 	delete p;
-	switch (choice)
-	{
-		case 1:
-			Queen *qn = new Queen(1,dest,board); 
-			board[rd][cd]=qn;
-			break;
-		case 2:
+	if(choice==1){
+		Queen *qn = new Queen(1,dest,board); 
+		board[rd][cd]=qn;
+	}	
+	if(choice==2){
 			Rook *rk = new Rook(1,dest,board);
 			board[rd][cd]=rk;
-			break;
-		case 3: 
+	}
+	if(choice==3) {
 			Knight *kn = new Knight(1,dest,board);
 			board[rd][cd]=kn;
-			break;
-		case 4: 
+	}	
+	if(choice==4){ 
 			Bishop *Bh = new Bishop(1,dest,board);
 			board[rd][cd]=Bh;
-			break;
-		default:
-			cout<<"F*ck you, stay with your f*cking pawn";
-			break;
 	}
+	if(choice<1||choice>4)
+			cout<<"F*ck you, stay with your f*cking pawn";
     }
     if( p->pawn_type == true && p->player == 2 && rd == 0){
         cout<<"Choose your piece:\n1.-Queen\n2.-Rook\n3.-Knight\n4.-Bishop";
         cin>>choice;
         delete p;
-        switch (choice)
-        {
-                case 1:
-                        Queen *nq = new Queen(2,dest,board);
-			board[rd][cd]=nq;
-			break;
-                case 2:
-                        Rook *kr = new Rook(2,dest,board);
-			board[rd][cd]=kr;
-			break;
-                case 3:
-                        Knight *nk = new Knight(2,dest,board);
-			board[rd][cd]=nk;
-			break;
-                case 4:
-                        Bishop *hb = new Bishop(2,dest,board);
-			board[rd][cd]=hb;
-			break;
-                default:
-                        cout<<"F*ck you, stay with your f*cking pawn";
-			break;
+        if(choice==1){
+                Queen *qn = new Queen(2,dest,board);
+                board[rd][cd]=qn;
         }
+        if(choice==2){
+                        Rook *rk = new Rook(2,dest,board);
+                        board[rd][cd]=rk;
+        }
+        if(choice==3) {
+                        Knight *kn = new Knight(2,dest,board);
+                        board[rd][cd]=kn;
+        }
+        if(choice==4){
+                        Bishop *Bh = new Bishop(2,dest,board);
+                        board[rd][cd]=Bh;
+        }
+        if(choice<1||choice>4)
+                        cout<<"F*ck you, stay with your f*cking pawn";
     }
 
 }
