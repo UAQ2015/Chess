@@ -5,7 +5,7 @@
 using namespace std;
 
 ChessBoard::ChessBoard() :
-        board{0} {
+        board{{0}} {
     turn = 1;
     winner = 0;
 

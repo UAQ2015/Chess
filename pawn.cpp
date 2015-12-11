@@ -31,34 +31,34 @@ bool Pawn::Validate(string dest)
    	int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
 	 if (player==1)
         {
-                if (c == cd)
-                {
-			if((r==1&&rd==3)||(rd==r+1))
-			{
-				if(board[rd][c]==NULL && board[r+1][c]==NULL)
-						return true;
-			}
-		}
-		if((c+1 ==cd)||(c-1==cd))
-			if(r+1==rd && board[rd][cd]->player==2)
-				return true;
-
+                if (c-1 == cd||c+1==cd)
+                    if(rd==r+1)
+                        if(board[rd][cd]==NULL)
+                                return true;
+                if(r==1)
+                    if(c-2==cd||c+2==cd)
+                        if(rd==r+2)
+                            if(board[rd][cd]==NULL&&board[rd-1][(cd+c)/2]==NULL)
+                                    return true;
+                if(c==cd)
+                        if(r+1==rd&&board[rd][cd]->player==2)
+                            return true;
 	}
 
 	 if (player==2)
         {
-                if (c == cd)
-                {
-                        if((r==6 && rd==4)||(rd==r-1))
-                        {
-				if(board[rd][c]==NULL && board[r-1][c]==NULL)
-						return true;
-                        }
-                }
-                if((c+1 ==cd)||(c-1==cd))
-			if(r-1==rd && board[rd][cd]->player==1)
+                if (c-1 == cd||c+1==cd)
+                    if(rd==r-1)
+                        if(board[rd][cd]==NULL)
                                 return true;
-
-        }
+                if(r==6)
+                    if(c-2==cd||c+2==cd)
+                        if(rd==r-2)
+                            if(board[rd][cd]==NULL&&board[rd+1][(cd+c)/2]==NULL)
+                                    return true;
+                if(c==cd)
+                        if(r-1==rd&&board[rd][cd]->player==1)
+                            return true;
+	}
 	return false;
 }
