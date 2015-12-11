@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     ChessBoard cb;
-
+	int i;
 //	cb.TestRook();
 //	cb.TestPawn();
 	//cb.TestBishop();
@@ -35,9 +35,13 @@ int main()
 			cb.Draw();
 			cout<<"Move piece from :\n";
 			cin>>move;
-			p= cb.GetPiece(move);
+				if(move[0]>=65&&move[0]<=73)
+					move[0]=move[0]+32;
+				p= cb.GetPiece(move);
 			cout<<"Move piece to:\n";
 			cin>>move;
+			if(move[0]>=65&&move[0]<=73)
+					move[0]=move[0]+32;
 			v= cb.Validate(p, move);
 
 			if(v==true){

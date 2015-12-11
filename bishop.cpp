@@ -33,6 +33,11 @@ bool Bishop::Validate(string dest)
         int cd = (int) (dest[0] - 'a'); // letters are the columns
         int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
   	int i=1, flag=0;
+	if(c>7||cd>7||r>7||rd>7||c<0||cd<0||r<0||rd<0)
+	{
+		cout << "not valid position\n";
+		return false;
+	}
 		if (cd==c)
 			return false;
                 if ((rd-r)/(cd-c) == -1)

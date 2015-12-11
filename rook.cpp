@@ -28,48 +28,71 @@ bool Rook::Validate(string dest) {
     bool v = false;
     int cd = (int) (dest[0] - 'a'); // letters are the columns
     int rd = (int) 8 - (dest[1] - '0'); // numbers are rows
-
+	
+	
+	if(c>7||cd>7||r>7||rd>7||c<0||cd<0||r<0||rd<0)
+	{
+		cout << "not valid position\n";
+		return false;
+	}
     if (c == cd) {
-        int direction;
-        direction = rd - r > 0 ? 1 : -1;
-        for (int i = r + direction; i < rd; i++) {
-            // cout << "Getting piece " << i << " " << c << endl;
-            Piece *p = board[i][c];
+        if(rd>r)
+		{
+        	for (int i = r+1; i < rd; i++) {
+            	// cout << "Getting piece " << i << " " << c << endl;
+					if(board[i][c]!=NULL){
+        	        cout << "There is a piece in the path\n";
+                	cout << endl;
+                	return false;
+   			   	}
+        	}
+		}
+        if(rd<r)
+		{
+        	for (int i = rd+1; i < r; i++) {
+            	// cout << "Getting piece " << i << " " << c << endl;
+					if(board[i][c]!=NULL){
+        	        cout << "There is a piece in the path\n";
+                	cout << endl;
+                	return false;
+   			   		}
+        	}
+		}
 
-            if (p != NULL) {
-                cout << "There is a piece in the path\n";
-                p->Draw();
-                cout << endl;
-                return false;
-            }
-        }
         if (board[rd][cd] == NULL || board[rd][cd]->player != player)
             return true;
         // the destination is a piece from the same player
         return false;
-    } else if (r == rd) {
-        int direction = rd - c > 0 ? 1 : -1;
-        for (int i = c + direction; i < cd; i++) {
-            // cout << "Getting piece " << i << " " << c << endl;
-            Piece *p = board[r][i];
+    } 
+	    if (r == rd) {
+        if(cd>c)
+		{
+        	for (int i = c+1; i < cd; i++) {
+            	// cout << "Getting piece " << i << " " << c << endl;
+					if(board[r][i]!=NULL){
+        	        cout << "There is a piece in the path\n";
+                	cout << endl;
+                	return false;
+   			   	}
+        	}
+		}
+        if(cd<c)
+		{
+        	for (int i = cd+1; i < c; i++) {
+            	// cout << "Getting piece " << i << " " << c << endl;
+					if(board[r][i]!=NULL){
+        	        cout << "There is a piece in the path\n";
+                	cout << endl;
+                	return false;
+   			   		}
+        	}
+		}
 
-            if (p != NULL) {
-                cout << "There is a piece in the path\n";
-                p->Draw();
-                cout << endl;
-                return false;
-            }
-        }
         if (board[rd][cd] == NULL || board[rd][cd]->player != player)
             return true;
         // the destination is a piece from the same player
         return false;
-    }
-    else {
-        //cout << "invalid movement\n";
-        return false;
-    }
 
-    return v;
+		}
 }
 
