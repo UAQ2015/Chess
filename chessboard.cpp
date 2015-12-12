@@ -566,7 +566,8 @@ void ChessBoard::ChangeTurn() {
 			if ((p -> king_type) == true)
 
             {
-
+		kings++;
+		//comment from here...
                 for(int ar = 0; ar < 8; ar++)
 
                 {
@@ -583,10 +584,9 @@ void ChessBoard::ChangeTurn() {
                             s[0]=cc;
                             s[1]=cr;
                             s[2]='\0';
-                            /*cout << "\ns="<<s<<"\nar="<<ar<<"\nac="<<ac;*/
                             if (board[ar][ac]->Validate(s) == true)
                             {	
-                                cout << "\nJAQUE"<<"\nar = "<<ar<<"\nac = "<<ac ;
+                                cout << "\n\nJAQUE!!\n\n";
                                  x = 1;
 				ac = 8;
 				ar = 8;
@@ -594,7 +594,7 @@ void ChessBoard::ChangeTurn() {
                         }
                         }
                         }
-                kings++;
+			//... to here to remove check function, in order to help tests
                         }
             }
 		}
