@@ -578,7 +578,6 @@ void ChessBoard::ChangeTurn() {
                         if (board[ar][ac] != NULL && board[ar][ac] -> player != board[tr][tc] -> player)
 
                         {
-
                             cc=(char)(tc+97);
                             cr=(char)(8-tr+48);
                             s[0]=cc;
