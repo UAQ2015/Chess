@@ -548,6 +548,10 @@ void ChessBoard::Move(Piece *p, string dest) {
 
 }
 void ChessBoard::ChangeTurn() {
+
+    char s[2],cc,cr;
+
+    int x=0;
     if(turn==1)
         turn= 2;
     else
@@ -560,9 +564,41 @@ void ChessBoard::ChangeTurn() {
 		{
 			p=board[tr][tc];
 			if ((p -> king_type) == true)
-				kings++;
+
+            {
+
+                for(int ar = 0; ar < 8; ar++)
+
+                {
+
+                    for(int ac = 0; ac < 8; ac++)
+
+                    {
+
+                        if (board[ar][ac] != NULL && board[ar][ac] -> player != board[tr][tc] -> player)
+
+                        {
+
+                            cc=(char)(tc+97);
+                            cr=(char)(8-tr+48);
+                            s[0]=cc;
+                            s[1]=cr;
+                            s[2]='\0';
+                            /*cout << "\ns="<<s<<"\nar="<<ar<<"\nac="<<ac;*/
+                            if (board[ar][ac]->Validate(s) == true)
+                            {	
+                                cout << "\nJAQUE"<<"\nar = "<<ar<<"\nac = "<<ac ;
+                                 x = 1;
+				ac = 8;
+				ar = 8;
+                            }
+                        }
+                        }
+                        }
+                kings++;
+                        }
+            }
 		}
-	}
     if (kings != 2)
 	winner = 1;
 }
