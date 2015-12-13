@@ -94,5 +94,6 @@ bool Rook::Validate(string dest) {
         return false;
 
 		}
+	return false;
 }
 
